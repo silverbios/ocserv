@@ -16,6 +16,7 @@ COMMIT
 -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 -A INPUT -p icmp -j ACCEPT
 -A INPUT -i lo -j ACCEPT
+-A INPUT -i ##"IFNAME"## -p tcp -m tcp --dport 3721 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 -A INPUT -i ##"IFNAME"## -p tcp -m tcp --dport 3389 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 -A INPUT -i ##"IFNAME"## -p udp -m udp --dport 3389 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 -A INPUT -i ##"IFNAME"## -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
